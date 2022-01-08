@@ -1,3 +1,5 @@
+package oop;
+
 // Sample Class Declaration
 public class Dog {
     // "Class fields" / "Instance Variables"
@@ -11,12 +13,7 @@ public class Dog {
 
     // "Method signature"
     // "Constructor" Declaration
-    public Dog(String name, String breed, int age, String color) {
-        this.name = name;
-        this.breed = breed;
-        this.age = age;
-        this.color = color;
-    }
+    // Full-parameter constructor
 
     // Sample "Method overriding"
     // Default No-parameter Constructor Declaration
@@ -71,15 +68,17 @@ public class Dog {
     }
 
     public static void main(String[] args) {
-        // Sample Dog "instantiation"
-        Dog sampleDog = new Dog("Karabaş", "Kangal", 5, "Kahverengi");
-        System.out.println(sampleDog.toString());
+        // Sample oop.Dog "instantiation" with Default Constructor
+
+        // Sample oop.Dog "instantiation" with Fully-parameter Constructor
+
+        // Add separator
         // System.out.println("----------------------------------");
 
-        // Sample Dog instantiation "statement" with default constructor
+        // Sample oop.Dog instantiation "statement" with default constructor
 
 
-        // Sample Dog instantiation statement just with name
+        // Sample oop.Dog instantiation statement just with name
 
 
     }
