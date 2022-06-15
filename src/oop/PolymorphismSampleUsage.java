@@ -23,7 +23,7 @@ public class PolymorphismSampleUsage {
         animals.add(myFrog);
 
         // Trying to add oop.Dog object
-        Dog sampleDog = new oop.Dog("Karabaş", "Kangal", "Kahverengi", 5);
+        Dog sampleDog = new Dog("Karabaş", "Kangal", "Kahverengi", 5);
         animals.add(sampleDog);
 
         // ... some

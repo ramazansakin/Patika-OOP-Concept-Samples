@@ -5,13 +5,25 @@ import java.util.Map;
 import java.util.Scanner;
 
 interface Operator {
-    int calc(int a, int b);
-}
 
-class Addition implements Operator {
-    public int calc(int a, int b) {
+    default int calc(int a, int b) {
         return a + b;
     }
+}
+
+interface Operator2 {
+    default int calc(int a, int b) {
+        return 0;
+    }
+}
+
+// Diamond Problem Solution
+class Addition implements Operator, Operator2 {
+
+    public int calc(int a, int b) {
+        return Operator2.super.calc(a, b);
+    }
+
 }
 
 class Subtraction implements Operator {
@@ -19,6 +31,11 @@ class Subtraction implements Operator {
         return a - b;
     }
 }
+
+// Diamond Problem
+//class AdditionAndSubtraction extends Addition, Subtraction {
+//
+//}
 
 class Multiplication implements Operator {
     public int calc(int a, int b) {
@@ -35,6 +52,7 @@ class Division implements Operator {
 public class PolimorphismSampleUsage2 {
 
     private static Map<String, Operator> calOp = new HashMap<>();
+
     {
         calOp.put("+", new Addition());
         calOp.put("-", new Subtraction());
