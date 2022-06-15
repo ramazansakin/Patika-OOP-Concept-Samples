@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Sample Class Declaration
-public class Dog implements Animal{
+public class Dog implements Animal {
     // "Class fields" / "Instance Variables"
     // "Access modifiers"
     private String name;
@@ -70,7 +70,7 @@ public class Dog implements Animal{
         this.color = color;
     }
 
-    // Sample "method overloading"
+    // Sample "method overriding"
     @Override
     public String toString() {
         return ("Hi my name is " + this.getName() + ".\n" +
@@ -78,6 +78,7 @@ public class Dog implements Animal{
                 this.getBreed() + ", " + this.getAge() +
                 ", " + this.getColor()) + "";
     }
+
 
     public static void main(String[] args) {
         // Sample oop.Dog "instantiation" with Default Constructor
@@ -98,7 +99,7 @@ public class Dog implements Animal{
         System.out.println(sample2);
         System.out.println("----------------------------------");
 
-        Integer testNumber = new Integer(1);
+        Integer testNumber = 1; // auto-boxing on wrapper class - Integer
         // input variable sent auto-boxed as Integer
         // returned variable as auto-boxed as Integer
         Integer a = getNumber(testNumber);
