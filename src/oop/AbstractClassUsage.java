@@ -41,7 +41,7 @@ abstract class AbstractEmployee {
     }
 
     // Abstract method sample usage
-    // public abstract double computePay();
+//    public abstract double computePay();
 
     public void mailCheck() {
         System.out.println("Mailing a check to " + this.name + " " + this.address);
@@ -87,13 +87,13 @@ class Salary2 extends AbstractEmployee {
     }
 
     public void setSalary(double newSalary) {
-        if(newSalary >= 0.0) {
+        if (newSalary >= 0.0) {
             salary = newSalary;
         }
     }
 
     public double computePay() {
         System.out.println("Computing salary pay for " + getName());
-        return salary/52;
+        return salary / 52;
     }
 }

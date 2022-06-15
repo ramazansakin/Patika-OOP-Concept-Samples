@@ -7,17 +7,40 @@ public class InnerClassSampleUsage {
         // Inner class sample usage
         OuterClass myOuter = new OuterClass();
 
-        OuterClass.InnerClass myInner = myOuter.new InnerClass();
-        System.out.println(myInner.y + myOuter.x);
+        // Static inner class instantiation
+//        OuterClass.InnerClass myInner = new OuterClass.InnerClass();
+        myOuter.setInnerClass(10);
+
+        System.out.println("Sum of Outer class X + inner class Y : ");
+        System.out.println( myOuter.x + myOuter.getInnerClassY() );
     }
 
 }
 
 class OuterClass {
-    int x = 10;
+    public int x = 10;
+    private InnerClass innerClass;
 
     // make it private and test ?
-    class InnerClass {
-        int y = 5;
+    private class InnerClass {
+        public int y = 5;
+
+        public int getY() {
+            return y;
+        }
     }
+
+    public void setInnerClass(int y) {
+        this.innerClass = new InnerClass();
+        this.innerClass.y = y;
+    }
+
+    public InnerClass getInnerClass() {
+        return innerClass;
+    }
+
+    public int getInnerClassY(){
+        return innerClass.getY();
+    }
+
 }
