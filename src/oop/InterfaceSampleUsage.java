@@ -14,7 +14,7 @@ public class InterfaceSampleUsage {
     }
 }
 
-// Interface declaration
+// Interface declaration - Interface Segregation - Single Responsibility
 interface Drawable {
     void draw();
 }
@@ -23,7 +23,7 @@ interface Printable {
     void print();
 }
 
-// Implementation 1
+// Implementation 1 - Liskov Substitution
 class Rectangle implements Drawable, Printable {
 
     public int height;
@@ -41,10 +41,20 @@ class Rectangle implements Drawable, Printable {
 
     @Override
     public void print() {
-
+        System.out.println("[Height: " + height + " - width: " + width + " ]");
     }
 
+}
 
+// Open to Extension / Close to Modification
+class SpecialRectangle extends Rectangle {
+
+    private String special;
+
+    public SpecialRectangle(int height, int width, String special) {
+        super(height, width);
+        this.special = special;
+    }
 }
 
 // Implementation 2
@@ -60,6 +70,11 @@ class Circle implements Drawable {
     public void draw() {
         System.out.println("Drawing circle [Radius: " + radius + " ]");
     }
+
+//    @Override
+//    public void print() {
+//        throw new UnsupportedOperationException();
+//    }
 
 }
 

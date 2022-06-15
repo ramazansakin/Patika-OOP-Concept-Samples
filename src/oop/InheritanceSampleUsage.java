@@ -15,8 +15,9 @@ public class InheritanceSampleUsage {
     }
 }
 
-// "base class"
+// "base class/parent class/super class"
 class Bicycle {
+    // instance variables / attributes / fields
     protected int gear;
     public int speed;
 
@@ -30,6 +31,7 @@ class Bicycle {
         this.speed = speed;
     }
 
+    // accessors / modifiers
     public int getGear() {
         return gear;
     }
@@ -56,6 +58,7 @@ class Bicycle {
     }
 
     // toString() method to print info of related oop.Bicycle
+    @Override
     public String toString() {
         return ("No of gears are " + gear + "\n" + "speed of bicycle is " + speed);
     }
@@ -66,6 +69,38 @@ class Bicycle {
         if (!(o instanceof Bicycle)) return false;
         Bicycle bicycle = (Bicycle) o;
         return getGear() == bicycle.getGear() && getSpeed() == bicycle.getSpeed();
+    }
+
+    public static void main(String[] args) {
+        // == operator
+        Integer a = 5; // auto-boxing
+        int b = new Integer(4); // auto-unboxing
+        Integer c = new Integer(5);
+
+
+        if (a == c) {
+            System.out.println("Equal");
+        } else {
+            System.out.println("Not Equal");
+        }
+
+        if (a.equals(c)) {
+            System.out.println("Equal");
+        } else {
+            System.out.println("Not Equal");
+        }
+
+        Bicycle bicycle1 = new Bicycle(5, 10);
+        Bicycle bicycle2 = new Bicycle(5, 10);
+
+        System.out.println("Bicycle Test");
+        if (bicycle1.equals(bicycle2)) {
+            System.out.println("Equal");
+        } else {
+            System.out.println("Not Equal");
+        }
+
+
     }
 
     @Override
