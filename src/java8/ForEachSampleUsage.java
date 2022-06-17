@@ -1,5 +1,7 @@
 package java8;
 
+import com.sun.xml.internal.ws.util.StringUtils;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -57,11 +59,9 @@ public class ForEachSampleUsage {
 
         // traversing through forEach method of Iterable with anonymous class
         myList.forEach(new Consumer<Integer>() {
-
             public void accept(Integer t) {
                 System.out.println("forEach anonymous class Value::" + t);
             }
-
         });
 
         // traversing with customized/user-defined Consumer interface implementation
@@ -79,6 +79,7 @@ public class ForEachSampleUsage {
         System.out.println("------------Iterating by passing method reference---------------");
         // String
         gamesList.forEach(System.out::println);
+
 
     }
 }
