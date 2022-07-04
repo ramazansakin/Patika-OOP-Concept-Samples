@@ -21,6 +21,18 @@ public class DIoverIOCUsageSample {
 
         // When we need another type of image editor ?
         // Create a class with different type of file editor
+        GifFileEditor gifFileEditor = new GifFileEditor();
+        PngFileEditor pngFileEditor = new PngFileEditor();
+
+        ImageFileProcessor processor;
+        String type = "GIF"; // input from anywhere else
+
+        if(type == "GIF") {
+            processor = new ImageFileProcessor();
+            processor.setImageFileEditor(gifFileEditor);
+        }else if(type == "PNG")
+            processor = new ImageFileProcessor(pngFileEditor);
+
 
         // Create an image processor DI
 
@@ -38,6 +50,7 @@ public class DIoverIOCUsageSample {
 
 // File Editor Interface and common functionalities
 interface ImageFileEditor {
+
     String openFile(String fileName);
 
     String editFile(String fileName);
@@ -73,20 +86,33 @@ class GifFileEditor implements ImageFileEditor {
 }
 
 // Sample Image Processor File without DI pattern
+
 class ImageFileProcessor {
 
+    // field injection
     // Autowiring injection
+    // @Autowire - @Qualifier
     // "Qualifier" usage
-
     public ImageFileEditor imageFileEditor;
+
+
 
     // "constructor injection"
     public ImageFileProcessor() {
+        // highly-coupled
+        // eager-loading
         this.imageFileEditor = new GifFileEditor();
+    }
+
+    // "constructor injection" 2
+    public ImageFileProcessor(ImageFileEditor imageFileEditor) {
+        this.imageFileEditor = imageFileEditor;
     }
 
     // setter injection
     public void setImageFileEditor(ImageFileEditor imageFileEditor) {
+        // loosely-coupled
+        // lazy-loading
         this.imageFileEditor = imageFileEditor;
     }
 
