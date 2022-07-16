@@ -1,33 +1,32 @@
 package playground;
 
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class DublicateWords {
+
     public static void main(String[] args) {
 
-        String regex = "\\b(\\w+)(\\s+\\1\\b)*";
 
-        Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+    }
 
-        Scanner in = new Scanner(System.in);
-        int numSentences = Integer.parseInt(in.nextLine());
+    List<String> solution(List<String> strings) {
 
-        while (numSentences-- > 0) {
-            String input = in.nextLine();
-
-            Matcher m = p.matcher(input);
-
-            // Check for subsequences of input that match the compiled pattern
-            while (m.find()) {
-                input = input.replaceAll(m.group(0), m.group(1));
+        Collections.sort(strings, new Comparator<String>() {
+            @Override
+            public int compare(String string1, String string2) {
+                int string1L = digitsInString(string1);
+                int string2L = digitsInString(string2);
+                return string1L - string2L;
             }
 
-            // Prints the modified sentence.
-            System.out.println(input);
-        }
+            private int digitsInString(String string) {
+                return string.split(" ").length;
+            }
+        });
 
-        in.close();
+        return strings;
     }
+
 }
