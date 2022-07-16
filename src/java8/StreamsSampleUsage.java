@@ -116,7 +116,7 @@ public class StreamsSampleUsage {
 
 
         // Sum by using Collectors Methods
-        // Using Collectors's method to sum the prices.
+        // Using Collectors' method to sum the prices.
         double totalPrice3 = productsList.stream()
                 .collect(Collectors.summingDouble(product -> product.price));
         System.out.println(totalPrice3);
@@ -127,7 +127,7 @@ public class StreamsSampleUsage {
         Product productA = productsList.stream().max((product1, product2) -> product1.price > product2.price ? 1 : -1).get();
         System.out.println(productA.price);
         // min() method to get min Product price
-        Product productB = productsList.stream().min((product1, product2) -> product1.price > product2.price ? 1 : -1).get();
+        Product productB = productsList.stream().min((product1, product2) -> product1.price < product2.price ? 1 : -1).get();
         System.out.println(productB.price);
 
 
